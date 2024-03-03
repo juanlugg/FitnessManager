@@ -1,0 +1,1 @@
+Example of fitness management application to practice
