@@ -6,8 +6,10 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.juanlugg8.fitnessmanager.entity.Profile
+import com.juanlugg8.fitnessmanager.entity.ProfileDao
 import com.juanlugg8.fitnessmanager.entity.User
 import com.juanlugg8.fitnessmanager.entity.UserDao
+import com.juanlugg8.fitnessmanager.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -18,6 +20,7 @@ import kotlinx.coroutines.launch
 abstract class FitnessDatabase : RoomDatabase() {
 
     abstract fun userDao() : UserDao
+    abstract fun profileDao() : ProfileDao
     companion object {
         @Volatile
         private var INSTANCE: FitnessDatabase? = null
@@ -34,7 +37,7 @@ abstract class FitnessDatabase : RoomDatabase() {
                 Locator.requiredApplication, FitnessDatabase::class.java, "FitnessManager"
 
             ).fallbackToDestructiveMigration().allowMainThreadQueries()
-                //.addTypeConverter(UserConverter())
+                .addTypeConverter(UserConverter())
                 .addCallback(RoomDbInitializer(INSTANCE))
                 .build()
         }
@@ -49,7 +52,6 @@ abstract class FitnessDatabase : RoomDatabase() {
                     populateDatabase()
                 }
             }
-
         }
 
         private fun populateDatabase() {
@@ -57,6 +59,9 @@ abstract class FitnessDatabase : RoomDatabase() {
             getInstance().userDao().insert(User(1,
                 "Juanlu","666777888"
             ))
+            getInstance().profileDao().insert(
+                Profile(1,UserRepository.getUser(1), "04/03/2024",180.0,80.0)
+            )
         }
     }
 }

@@ -21,5 +21,9 @@ class UserRepository {
         fun selectAllUserListRAW() : List<User> {
             return FitnessDatabase.getInstance().userDao().selectAllRAW()
         }
+
+        fun getUser(id : Int) : User{
+            return FitnessDatabase.getInstance().userDao().selectUser(id)
+        }
     }
 }
