@@ -9,9 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.juanlugg8.fitnessmanager.R
 import com.juanlugg8.fitnessmanager.databinding.FragmentFirstBinding
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
