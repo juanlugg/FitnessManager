@@ -14,6 +14,10 @@ class ProfileTest {
         Truth.assertThat(profile).isInstanceOf(Profile::class.java)
     }
     @Test
+    fun `profileId is equals 1`(){
+        Truth.assertThat(profile.id).isEqualTo(1)
+    }
+    @Test
     fun `user is correct`(){
         val user = User(1,"Juanlu","666777888")
         Truth.assertThat(profile.user).isEqualTo(user)

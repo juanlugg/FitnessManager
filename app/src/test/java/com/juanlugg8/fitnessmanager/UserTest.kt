@@ -10,5 +10,8 @@ class UserTest {
     fun `user is Instance of User`(){
         Truth.assertThat(user).isInstanceOf(User::class.java)
     }
-
+    @Test
+    fun `userId is equals 1`(){
+        Truth.assertThat(user.id).isEqualTo(1)
+    }
 }

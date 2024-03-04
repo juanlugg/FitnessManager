@@ -1,0 +1,191 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MainActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.juanlugg8.fitnessmanager</a>
+</div>
+
+<h1>Coverage Summary for Class: MainActivity (com.juanlugg8.fitnessmanager)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MainActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">MainActivity$inlined$sam$i$androidx_navigation_ui_AppBarConfiguration_OnNavigateUpListener$0</td>
+  </tr>
+  <tr>
+    <td class="name">MainActivity$onCreate$$inlined$AppBarConfiguration$default$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.juanlugg8.fitnessmanager
+&nbsp;
+&nbsp;import android.Manifest
+&nbsp;import android.content.pm.PackageManager
+&nbsp;import android.os.Bundle
+&nbsp;import com.google.android.material.snackbar.Snackbar
+&nbsp;import androidx.appcompat.app.AppCompatActivity
+&nbsp;import androidx.navigation.findNavController
+&nbsp;import androidx.navigation.ui.AppBarConfiguration
+&nbsp;import androidx.navigation.ui.navigateUp
+&nbsp;import androidx.navigation.ui.setupActionBarWithNavController
+&nbsp;import android.view.Menu
+&nbsp;import android.view.MenuItem
+&nbsp;import androidx.activity.result.ActivityResultLauncher
+&nbsp;import androidx.activity.result.contract.ActivityResultContracts
+&nbsp;import androidx.core.content.ContextCompat
+&nbsp;import androidx.navigation.ui.NavigationUI
+&nbsp;import com.juanlugg8.fitnessmanager.databinding.ActivityMainBinding
+&nbsp;
+<b class="nc">&nbsp;class MainActivity : AppCompatActivity() {</b>
+&nbsp;
+&nbsp;    private lateinit var appBarConfiguration: AppBarConfiguration
+&nbsp;    private lateinit var binding: ActivityMainBinding
+&nbsp;    private lateinit var requestPermissionLauncher: ActivityResultLauncher&lt;String&gt;
+&nbsp;
+&nbsp;    override fun onCreate(savedInstanceState: Bundle?) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState)</b>
+&nbsp;
+<b class="nc">&nbsp;        binding = ActivityMainBinding.inflate(layoutInflater)</b>
+<b class="nc">&nbsp;        setContentView(binding.root)</b>
+&nbsp;
+<b class="nc">&nbsp;        setSupportActionBar(binding.toolbar)</b>
+&nbsp;
+<b class="nc">&nbsp;        val navController = findNavController(R.id.nav_host_fragment_content_main)</b>
+<b class="nc">&nbsp;        appBarConfiguration = AppBarConfiguration(navController.graph)</b>
+<b class="nc">&nbsp;        setupActionBarWithNavController(navController, appBarConfiguration)</b>
+&nbsp;
+<b class="nc">&nbsp;        requestPermissionLauncher =</b>
+<b class="nc">&nbsp;            registerForActivityResult(ActivityResultContracts.RequestPermission()){</b>
+<b class="nc">&nbsp;                if(!it){</b>
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED){</b>
+<b class="nc">&nbsp;            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)</b>
+&nbsp;        }
+<b class="nc">&nbsp;        NavigationUI.setupWithNavController(binding.toolbar,navController,appBarConfiguration)</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+<b class="nc">&nbsp;        menuInflater.inflate(R.menu.menu_main, menu)</b>
+<b class="nc">&nbsp;        return true</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+&nbsp;
+<b class="nc">&nbsp;        return when (item.itemId) {</b>
+<b class="nc">&nbsp;            R.id.action_settings -&gt; true</b>
+<b class="nc">&nbsp;            else -&gt; super.onOptionsItemSelected(item)</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun onSupportNavigateUp(): Boolean {
+<b class="nc">&nbsp;        val navController = findNavController(R.id.nav_host_fragment_content_main)</b>
+<b class="nc">&nbsp;        return navController.navigateUp(appBarConfiguration)</b>
+<b class="nc">&nbsp;                || super.onSupportNavigateUp()</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-03-04 20:37</div>
+</div>
+</body>
+</html>

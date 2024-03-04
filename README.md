@@ -1,6 +1,6 @@
 Example of fitness management application to practice
-[juanlugg8 = jguegen]
- (Apuntes DEINT, KOTLIN)
+# [juanlugg8 = jguegen]
+# (Apuntes DEINT, KOTLIN)
 ### --> ADD, LIST, DELETE 
 ### ---> MVVM 
 ### ---> BD (1, 2 objetos POJO)

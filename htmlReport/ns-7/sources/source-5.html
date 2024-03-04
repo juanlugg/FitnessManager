@@ -1,0 +1,86 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > UserDao</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.juanlugg8.fitnessmanager.entity</a>
+</div>
+
+<h1>Coverage Summary for Class: UserDao (com.juanlugg8.fitnessmanager.entity)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">UserDao</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.juanlugg8.fitnessmanager.entity
+&nbsp;
+&nbsp;import androidx.room.Dao
+&nbsp;import androidx.room.ForeignKey
+&nbsp;import androidx.room.Insert
+&nbsp;import androidx.room.Query
+&nbsp;import kotlinx.coroutines.flow.Flow
+&nbsp;
+&nbsp;@Dao
+&nbsp;interface UserDao {
+&nbsp;    @Insert(onConflict = ForeignKey.RESTRICT)
+&nbsp;    fun insert(user : User)
+&nbsp;    @Query(&quot;SELECT * FROM user&quot;)
+&nbsp;    fun selectAll() : Flow&lt;List&lt;User&gt;&gt;
+&nbsp;    @Query(&quot;SELECT * FROM user&quot;)
+&nbsp;    fun selectAllRAW() : List&lt;User&gt;
+&nbsp;    @Query(&quot;SELECT * FROM user u where u.id = :id&quot;)
+&nbsp;    fun selectUser(id: Int): User
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-03-04 20:37</div>
+</div>
+</body>
+</html>
