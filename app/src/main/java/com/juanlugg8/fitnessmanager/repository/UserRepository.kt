@@ -18,5 +18,8 @@ class UserRepository {
         fun selectAllUserList() : Flow<List<User>> {
             return FitnessDatabase.getInstance().userDao().selectAll()
         }
+        fun selectAllUserListRAW() : List<User> {
+            return FitnessDatabase.getInstance().userDao().selectAllRAW()
+        }
     }
 }

@@ -13,4 +13,6 @@ interface UserDao {
 
     @Query("SELECT * FROM user")
     fun selectAll() : Flow<List<User>>
+    @Query("SELECT * FROM user")
+    fun selectAllRAW() : List<User>
 }

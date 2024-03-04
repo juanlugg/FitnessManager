@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.juanlugg8.fitnessmanager.ui.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:name="com.juanlugg8.fitnessmanager.MainFragment"
+        android:label="@string/mainfragment"
+        tools:layout="@layout/fragment_main">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.juanlugg8.fitnessmanager.ui.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second"/>
+        android:name="com.juanlugg8.fitnessmanager.UserListFragment"
+        android:label="@string/userlist"
+        tools:layout="@layout/fragment_user_list"/>
 </navigation>

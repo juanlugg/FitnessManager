@@ -14,7 +14,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
 @Database(entities = [User::class, Profile::class], version = 1, exportSchema = false)
-@TypeConverters(ProfileConverter::class)
+@TypeConverters(UserConverter::class)
 abstract class FitnessDatabase : RoomDatabase() {
 
     abstract fun userDao() : UserDao
@@ -34,7 +34,7 @@ abstract class FitnessDatabase : RoomDatabase() {
                 Locator.requiredApplication, FitnessDatabase::class.java, "FitnessManager"
 
             ).fallbackToDestructiveMigration().allowMainThreadQueries()
-                .addTypeConverter(ProfileConverter())
+                //.addTypeConverter(UserConverter())
                 .addCallback(RoomDbInitializer(INSTANCE))
                 .build()
         }
@@ -54,7 +54,9 @@ abstract class FitnessDatabase : RoomDatabase() {
 
         private fun populateDatabase() {
 
-            getInstance().userDao().insert(User(1,Profile(1,"04/03/2024",180.0,80.0),"Juanlu","666777888"))
+            getInstance().userDao().insert(User(1,
+                "Juanlu","666777888"
+            ))
         }
     }
 }
