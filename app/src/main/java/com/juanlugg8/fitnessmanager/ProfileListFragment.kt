@@ -1,5 +1,7 @@
 package com.juanlugg8.fitnessmanager
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +17,7 @@ import com.juanlugg8.fitnessmanager.entity.Profile
 import com.juanlugg8.fitnessmanager.entity.User
 import com.juanlugg8.fitnessmanager.usecase.ProfileViewModel
 import com.juanlugg8.fitnessmanager.usecase.UserViewModel
+import com.juanlugg8.fitnessmanager.utils.Notification
 
 class ProfileListFragment : Fragment() {
     private var _binding: FragmentProfileListBinding? = null
@@ -27,6 +30,12 @@ class ProfileListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        channel = NotificationChannel(CHANNEL_ID,"Channel Profile", NotificationManager.IMPORTANCE_LOW)
+            .apply {
+                description = "Profile List"
+            }
+
         _binding = FragmentProfileListBinding.inflate(inflater, container, false)
         binding.viewmodel = this.viewModel
         binding.lifecycleOwner = this
@@ -44,6 +53,8 @@ class ProfileListFragment : Fragment() {
         binding.cvProfileList.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.allProfiles.observe(viewLifecycleOwner){
+            Notification.showNotificationWithNav(requireContext(),"Profile List","GO TO MAIN", channel, CHANNEL_ID,
+                NOTIFICATION_ID, R.id.UserListFragment)
             profileAdapter.submitList(it)
         }
     }
@@ -51,5 +62,10 @@ class ProfileListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    companion object{
+        lateinit var channel : NotificationChannel
+        private val NOTIFICATION_ID = 800
+        private val CHANNEL_ID = "profile_list"
     }
 }
