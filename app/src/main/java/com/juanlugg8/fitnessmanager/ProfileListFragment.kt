@@ -10,13 +10,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.juanlugg8.fitnessmanager.adapter.ProfileAdapter
-import com.juanlugg8.fitnessmanager.adapter.UserAdapter
 import com.juanlugg8.fitnessmanager.databinding.FragmentProfileListBinding
-import com.juanlugg8.fitnessmanager.databinding.FragmentUserListBinding
 import com.juanlugg8.fitnessmanager.entity.Profile
-import com.juanlugg8.fitnessmanager.entity.User
-import com.juanlugg8.fitnessmanager.usecase.ProfileViewModel
-import com.juanlugg8.fitnessmanager.usecase.UserViewModel
 import com.juanlugg8.fitnessmanager.utils.Notification
 
 class ProfileListFragment : Fragment() {

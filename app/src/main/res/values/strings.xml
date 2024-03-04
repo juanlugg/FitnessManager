@@ -5,8 +5,6 @@
     <string name="btnProfile">Profile</string>
     <string name="mainfragment">HOME</string>
     <string name="userlist">User List</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profilelistfragment">Profile List</string>
 
 </resources>

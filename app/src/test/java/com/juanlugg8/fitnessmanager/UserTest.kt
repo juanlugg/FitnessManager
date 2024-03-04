@@ -1,7 +1,6 @@
 package com.juanlugg8.fitnessmanager
 
 import com.google.common.truth.Truth
-import com.juanlugg8.fitnessmanager.entity.Profile
 import com.juanlugg8.fitnessmanager.entity.User
 import org.junit.Test
 

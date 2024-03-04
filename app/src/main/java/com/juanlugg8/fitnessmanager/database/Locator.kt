@@ -7,7 +7,6 @@ import androidx.datastore.preferences.preferencesDataStore
 object Locator {
     public var application: Application? = null
 
-    //inline, Cuando la llamas se inicializa y te lo da
     public inline val requiredApplication
         get()= application ?: error("Missing call: initwith(application)")
 

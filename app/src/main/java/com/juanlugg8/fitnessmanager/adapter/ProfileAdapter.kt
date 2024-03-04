@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.juanlugg8.fitnessmanager.databinding.RowProfileListBinding
-import com.juanlugg8.fitnessmanager.databinding.RowUserListBinding
 import com.juanlugg8.fitnessmanager.entity.Profile
-import com.juanlugg8.fitnessmanager.entity.User
 
 class ProfileAdapter(
     private val onClick: (profile: Profile, nav: Int) -> Unit,
