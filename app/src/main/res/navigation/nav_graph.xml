@@ -35,4 +35,9 @@
         android:id="@+id/userCreationFragment"
         android:name="com.juanlugg8.fitnessmanager.UserCreationFragment"
         android:label="UserCreationFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.juanlugg8.fitnessmanager.preferences.SettingsFragment"
+        android:label="SettingsFragment" />
+
 </navigation>

@@ -6,4 +6,6 @@
     <string name="mainfragment">HOME</string>
     <string name="userlist">User List</string>
     <string name="profilelistfragment">Profile List</string>
+    <string name="preference">Preference</string>
+    <string name="theme">Theme</string>
 </resources>

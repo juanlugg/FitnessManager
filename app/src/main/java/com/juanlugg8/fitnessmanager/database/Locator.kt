@@ -3,6 +3,7 @@ package com.juanlugg8.fitnessmanager.database
 import android.app.Application
 import android.content.Context
 import androidx.datastore.preferences.preferencesDataStore
+import com.juanlugg8.fitnessmanager.preferences.PreferencesRepository
 
 object Locator {
     public var application: Application? = null
@@ -18,8 +19,8 @@ object Locator {
     private val Context.apiPreferences by preferencesDataStore(name ="settings")
 
     //by lazy se inicializas la primera vez que la llames
-    val invoicePreferencesRepository by lazy {
-       // InvoicePreferencesRepository(requiredApplication.userStore)
+    val PreferencesRepository by lazy {
+        PreferencesRepository(requiredApplication.userStore)
     }
     /*val settingsPreferencesRepository by lazy {
         DataStorePreferencesRepository(requiredApplication.apiPreferences)
