@@ -15,6 +15,9 @@ class UserRepository {
                 Resources.Error(e)
             }
         }
+        fun deleteUser(user : User){
+            FitnessDatabase.getInstance().userDao().delete(user)
+        }
         fun selectAllUserList() : Flow<List<User>> {
             return FitnessDatabase.getInstance().userDao().selectAll()
         }

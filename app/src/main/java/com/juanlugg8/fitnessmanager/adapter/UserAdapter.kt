@@ -2,9 +2,11 @@ package com.juanlugg8.fitnessmanager.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.juanlugg8.fitnessmanager.databinding.RowUserListBinding
 import com.juanlugg8.fitnessmanager.entity.User
 
@@ -20,6 +22,10 @@ class UserAdapter(
                 tvId.text = user.id.toString()
                 tvName.text = user.name
                 tvPhone.text = user.phone
+                cvUserList.setOnLongClickListener {
+                    Snackbar.make(binding.root, "User ${user.id} deleted", Snackbar.LENGTH_LONG).show()
+                    onDelete(user)
+                true}
             }
         }
     }

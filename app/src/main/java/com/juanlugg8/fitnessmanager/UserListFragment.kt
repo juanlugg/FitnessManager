@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.juanlugg8.fitnessmanager.adapter.UserAdapter
 import com.juanlugg8.fitnessmanager.databinding.FragmentUserListBinding
 import com.juanlugg8.fitnessmanager.entity.User
@@ -48,7 +50,9 @@ class UserListFragment : Fragment() {
             var bundle = Bundle()
             bundle.putSerializable("user",user)
             parentFragmentManager.setFragmentResult("key", bundle)
-        }, {user : User -> })
+        }, {user : User ->
+            //.make(view, "", Snackbar.LENGTH_LONG).show()
+            viewModel.deleteUser(user)})
         binding.cvUserList.adapter = userAdapter
         binding.cvUserList.layoutManager = LinearLayoutManager(requireContext())
 
@@ -56,6 +60,8 @@ class UserListFragment : Fragment() {
             Notification.showNotification(requireContext(),"List User", "Hello", channel, CHANNEL_ID , NOTIFICATION_ID)
             userAdapter.submitList(it)
         }
+
+        binding.fabUser.setOnClickListener { findNavController().navigate(R.id.action_UserListFragment_to_userCreationFragment) }
     }
 
     override fun onDestroyView() {
