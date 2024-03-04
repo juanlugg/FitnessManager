@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.Flow
 interface UserDao {
     @Insert(onConflict = ForeignKey.RESTRICT)
     fun insert(user : User)
-
     @Query("SELECT * FROM user")
     fun selectAll() : Flow<List<User>>
     @Query("SELECT * FROM user")

@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.juanlugg8.fitnessmanager.adapter.UserAdapter
 import com.juanlugg8.fitnessmanager.databinding.FragmentUserListBinding
+import com.juanlugg8.fitnessmanager.entity.User
 import com.juanlugg8.fitnessmanager.usecase.UserViewModel
 
 
@@ -16,6 +19,8 @@ class UserListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel : UserViewModel by viewModels()
+
+    private lateinit var userAdapter : UserAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +36,18 @@ class UserListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        userAdapter = UserAdapter({user: User, nav : Int ->
+            var bundle = Bundle()
+            bundle.putSerializable("user",user)
+            parentFragmentManager.setFragmentResult("key", bundle)
+        }, {user : User -> })
+        binding.cvUserList.adapter = userAdapter
+        binding.cvUserList.layoutManager = LinearLayoutManager(requireContext())
+
         viewModel.allUsers.observe(viewLifecycleOwner){
-            println("HOLAAAAAAAAAAAAAAAAAAAAAAAAAA "+it)
+            userAdapter.submitList(it)
+            //println("HOLAAAAAAAAAAAAAAAAAAAAAAAAAA "+it)
         }
     }
 
