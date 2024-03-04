@@ -10,7 +10,6 @@
         android:name="com.juanlugg8.fitnessmanager.MainFragment"
         android:label="@string/mainfragment"
         tools:layout="@layout/fragment_main">
-
         <action
             android:id="@+id/action_MainFragment_to_UserFragment"
             app:destination="@id/UserListFragment" />
@@ -22,10 +21,10 @@
         android:id="@+id/UserListFragment"
         android:name="com.juanlugg8.fitnessmanager.UserListFragment"
         android:label="@string/userlist"
-        tools:layout="@layout/fragment_user_list"/>
+        tools:layout="@layout/fragment_user_list" />
     <fragment
         android:id="@+id/ProfileListFragment"
         android:name="com.juanlugg8.fitnessmanager.ProfileListFragment"
         android:label="@string/profilelistfragment"
-        tools:layout="@layout/fragment_profile_list"/>
+        tools:layout="@layout/fragment_profile_list" />
 </navigation>

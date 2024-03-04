@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         requestPermissionLauncher =
             registerForActivityResult(ActivityResultContracts.RequestPermission()){
                 if(!it){
-
                 }
             }
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED){

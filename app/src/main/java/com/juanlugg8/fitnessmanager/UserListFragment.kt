@@ -15,7 +15,6 @@ import com.juanlugg8.fitnessmanager.entity.User
 import com.juanlugg8.fitnessmanager.usecase.UserViewModel
 import com.juanlugg8.fitnessmanager.utils.Notification
 
-
 class UserListFragment : Fragment() {
 
     private var _binding: FragmentUserListBinding? = null
@@ -30,7 +29,7 @@ class UserListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        channel = NotificationChannel(CHANNEL_ID,"Channel User", NotificationManager.IMPORTANCE_LOW)
+        channel = NotificationChannel(CHANNEL_ID,"Channel User List", NotificationManager.IMPORTANCE_LOW)
             .apply {
                 description = "User List"
             }
@@ -56,7 +55,6 @@ class UserListFragment : Fragment() {
         viewModel.allUsers.observe(viewLifecycleOwner){
             Notification.showNotification(requireContext(),"List User", "Hello", channel, CHANNEL_ID , NOTIFICATION_ID)
             userAdapter.submitList(it)
-            //println("HOLAAAAAAAAAAAAAAAAAAAAAAAAAA "+it)
         }
     }
 

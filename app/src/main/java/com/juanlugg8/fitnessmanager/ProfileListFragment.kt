@@ -31,7 +31,7 @@ class ProfileListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        channel = NotificationChannel(CHANNEL_ID,"Channel Profile", NotificationManager.IMPORTANCE_LOW)
+        channel = NotificationChannel(CHANNEL_ID,"Channel Profile List", NotificationManager.IMPORTANCE_LOW)
             .apply {
                 description = "Profile List"
             }
