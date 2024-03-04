@@ -5,6 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.juanlugg8.fitnessmanager.database.UserConverter
+import java.io.Serializable
 
 @Entity(
     tableName = "profile", foreignKeys = [ForeignKey(
@@ -20,4 +21,4 @@ data class Profile(
     val dateStarted: String,
     val height: Double,
     val weight: Double
-)
+) : Serializable

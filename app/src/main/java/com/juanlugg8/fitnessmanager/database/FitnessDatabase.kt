@@ -60,10 +60,13 @@ abstract class FitnessDatabase : RoomDatabase() {
                 "Juanlu","666777888"
             ))
             getInstance().userDao().insert(User(2,
-                "David","666999555"
+                "Mateo","666999555"
             ))
             getInstance().profileDao().insert(
                 Profile(1,UserRepository.getUser(1), "04/03/2024",180.0,80.0)
+            )
+            getInstance().profileDao().insert(
+                Profile(2,UserRepository.getUser(2), "04/03/2024",165.0,66.0)
             )
         }
     }

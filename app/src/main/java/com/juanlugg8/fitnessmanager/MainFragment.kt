@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.juanlugg8.fitnessmanager.R
 import com.juanlugg8.fitnessmanager.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -29,7 +28,10 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnUser.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_MainFragment_to_UserFragment)
+        }
+        binding.btnProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_MainFragment_to_ProfileListFragment)
         }
     }
 
