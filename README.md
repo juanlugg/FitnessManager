@@ -1,5 +1,5 @@
 Example of fitness management application to practice
-# [juanlugg8 = jguegen]
+#### [juanlugg = jguegen]
 # (Apuntes DEINT, KOTLIN)
 ### --> ADD, LIST, DELETE 
 ### ---> MVVM 
