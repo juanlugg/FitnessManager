@@ -6,11 +6,11 @@
         android:layout_height="wrap_content"
         android:title="@string/theme">
         <SwitchPreference
-            android:key="@string/theme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:defaultValue="false"
-            android:title="Dark Theme"/>
+            android:key="@string/theme"
+            android:title="Dark Theme" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -18,11 +18,11 @@
         android:layout_height="wrap_content"
         android:title="@string/preference">
         <SwitchPreference
-            android:key="@string/preference"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:defaultValue="false"
-            android:title="ON/OFF"/>
+            android:key="@string/preference"
+            android:title="ON/OFF" />
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -10,8 +10,10 @@ import kotlinx.coroutines.flow.Flow
 interface ProfileDao {
     @Insert(onConflict = ForeignKey.RESTRICT)
     fun insert(profile: Profile)
+
     @Query("SELECT * FROM profile")
-    fun selectAll() : Flow<List<Profile>>
+    fun selectAll(): Flow<List<Profile>>
+
     @Query("SELECT * FROM profile")
-    fun selectAllRAW() : List<Profile>
+    fun selectAllRAW(): List<Profile>
 }

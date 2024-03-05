@@ -7,8 +7,8 @@ import com.juanlugg8.fitnessmanager.utils.Resources
 import kotlinx.coroutines.flow.Flow
 
 class ProfileRepository {
-    companion object{
-        fun insertUser(profile: Profile){
+    companion object {
+        fun insertUser(profile: Profile) {
             try {
                 FitnessDatabase.getInstance().profileDao().insert(profile)
                 Resources.Success(profile)
@@ -16,10 +16,12 @@ class ProfileRepository {
                 Resources.Error(e)
             }
         }
-        fun selectAllProfileList() : Flow<List<Profile>> {
+
+        fun selectAllProfileList(): Flow<List<Profile>> {
             return FitnessDatabase.getInstance().profileDao().selectAll()
         }
-        fun selectAllProfileListRAW() : List<Profile> {
+
+        fun selectAllProfileListRAW(): List<Profile> {
             return FitnessDatabase.getInstance().profileDao().selectAllRAW()
         }
     }

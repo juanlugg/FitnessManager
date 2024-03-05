@@ -17,15 +17,17 @@ class UserAdapter(
 
 
     inner class ListView(var binding: RowUserListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(user: User){
-            with(binding){
+        fun bind(user: User) {
+            with(binding) {
                 tvId.text = user.id.toString()
                 tvName.text = user.name
                 tvPhone.text = user.phone
                 cvUserList.setOnLongClickListener {
-                    Snackbar.make(binding.root, "User ${user.id} deleted", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(binding.root, "User ${user.id} deleted", Snackbar.LENGTH_LONG)
+                        .show()
                     onDelete(user)
-                true}
+                    true
+                }
             }
         }
     }
@@ -45,7 +47,7 @@ class UserAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListView {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ListView(RowUserListBinding.inflate(layoutInflater, parent,false))
+        return ListView(RowUserListBinding.inflate(layoutInflater, parent, false))
     }
 
     override fun onBindViewHolder(holder: ListView, position: Int) {

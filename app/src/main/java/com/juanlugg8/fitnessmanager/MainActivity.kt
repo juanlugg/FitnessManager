@@ -33,19 +33,23 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-         navController = findNavController(R.id.nav_host_fragment_content_main)
+        navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         requestPermissionLauncher =
-            registerForActivityResult(ActivityResultContracts.RequestPermission()){
-                if(!it){
+            registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+                if (!it) {
                 }
             }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
             requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
-        NavigationUI.setupWithNavController(binding.toolbar,navController,appBarConfiguration)
+        NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -60,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 navController.navigate(R.id.settingsFragment)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

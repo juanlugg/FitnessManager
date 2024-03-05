@@ -14,7 +14,8 @@ class ProfileAdapter(
 ) : ListAdapter<Profile, ProfileAdapter.ListView>(PROFILE_COMPARATOR) {
 
 
-    inner class ListView(var binding: RowProfileListBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ListView(var binding: RowProfileListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(profile: Profile) {
             with(binding) {
                 tvId.text = profile.id.toString()

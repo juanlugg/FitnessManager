@@ -11,15 +11,20 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface UserDao {
     @Insert(onConflict = ForeignKey.RESTRICT)
-    fun insert(user : User)
+    fun insert(user: User)
+
     @Delete
-    fun delete(user : User)
+    fun delete(user: User)
+
     @Update
-    fun update(user : User)
+    fun update(user: User)
+
     @Query("SELECT * FROM user")
-    fun selectAll() : Flow<List<User>>
+    fun selectAll(): Flow<List<User>>
+
     @Query("SELECT * FROM user")
-    fun selectAllRAW() : List<User>
+    fun selectAllRAW(): List<User>
+
     @Query("SELECT * FROM user u where u.id = :id")
     fun selectUser(id: Int): User
 }

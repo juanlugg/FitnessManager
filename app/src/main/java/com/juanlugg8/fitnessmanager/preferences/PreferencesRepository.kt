@@ -9,20 +9,22 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 
 class PreferencesRepository(private val dataStore: DataStore<Preferences>) {
-    fun savePreference(id:String){
+    fun savePreference(id: String) {
         runBlocking {
             dataStore.edit { preferences ->
                 preferences[PREFERENCES] ?: "none"
             }
         }
     }
-    fun getPreference(){
+
+    fun getPreference() {
         runBlocking {
             dataStore.data.map { preferences ->
                 preferences[PREFERENCES] ?: "none"
             }.first()
         }
     }
+
     fun saveTheme(theme: String) {
         runBlocking {
             dataStore.edit { preferences ->
@@ -31,6 +33,7 @@ class PreferencesRepository(private val dataStore: DataStore<Preferences>) {
         }
 
     }
+
     fun getTheme(): String {
         return runBlocking {
             dataStore.data.map { preferences ->
@@ -39,7 +42,7 @@ class PreferencesRepository(private val dataStore: DataStore<Preferences>) {
         }
     }
 
-    companion object{
+    companion object {
         private val PREFERENCES = stringPreferencesKey("preferences")
         private val THEME = stringPreferencesKey("theme")
     }

@@ -19,15 +19,19 @@ class ProfileListFragment : Fragment() {
     private var _binding: FragmentProfileListBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel : ProfileViewModel by viewModels()
+    private val viewModel: ProfileViewModel by viewModels()
 
-    private lateinit var profileAdapter : ProfileAdapter
+    private lateinit var profileAdapter: ProfileAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        channel = NotificationChannel(CHANNEL_ID,"Channel Profile List", NotificationManager.IMPORTANCE_LOW)
+        channel = NotificationChannel(
+            CHANNEL_ID,
+            "Channel Profile List",
+            NotificationManager.IMPORTANCE_LOW
+        )
             .apply {
                 description = "Profile List"
             }
@@ -37,20 +41,23 @@ class ProfileListFragment : Fragment() {
         binding.lifecycleOwner = this
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        profileAdapter = ProfileAdapter({ profile: Profile, nav : Int ->
+        profileAdapter = ProfileAdapter({ profile: Profile, nav: Int ->
             var bundle = Bundle()
-            bundle.putSerializable("profile",profile)
+            bundle.putSerializable("profile", profile)
             parentFragmentManager.setFragmentResult("key", bundle)
-        }, {profile : Profile -> })
+        }, { profile: Profile -> })
         binding.cvProfileList.adapter = profileAdapter
         binding.cvProfileList.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.allProfiles.observe(viewLifecycleOwner){
-            Notification.showNotificationWithNav(requireContext(),"Profile List","GO TO MAIN", channel, CHANNEL_ID,
-                NOTIFICATION_ID, R.id.UserListFragment)
+        viewModel.allProfiles.observe(viewLifecycleOwner) {
+            Notification.showNotificationWithNav(
+                requireContext(), "Profile List", "GO TO MAIN", channel, CHANNEL_ID,
+                NOTIFICATION_ID, R.id.UserListFragment
+            )
             profileAdapter.submitList(it)
         }
     }
@@ -59,8 +66,9 @@ class ProfileListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    companion object{
-        lateinit var channel : NotificationChannel
+
+    companion object {
+        lateinit var channel: NotificationChannel
         private val NOTIFICATION_ID = 800
         private val CHANNEL_ID = "profile_list"
     }

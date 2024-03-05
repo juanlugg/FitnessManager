@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewmodel"
             type="com.juanlugg8.fitnessmanager.usecase.UserViewModel" />
@@ -32,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name"
-                android:text="@={viewmodel.name}"/>
+                android:text="@={viewmodel.name}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -51,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone"
-                android:text="@={viewmodel.phone}"/>
+                android:text="@={viewmodel.phone}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -60,9 +61,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
+            android:onClick="@{()->viewmodel.validate()}"
             android:text="Accept"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilPhone"
-            android:onClick="@{()->viewmodel.validate()}"/>
+            app:layout_constraintTop_toBottomOf="@+id/tilPhone" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

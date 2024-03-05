@@ -19,8 +19,9 @@ import kotlinx.coroutines.launch
 @TypeConverters(UserConverter::class)
 abstract class FitnessDatabase : RoomDatabase() {
 
-    abstract fun userDao() : UserDao
-    abstract fun profileDao() : ProfileDao
+    abstract fun userDao(): UserDao
+    abstract fun profileDao(): ProfileDao
+
     companion object {
         @Volatile
         private var INSTANCE: FitnessDatabase? = null
@@ -56,20 +57,17 @@ abstract class FitnessDatabase : RoomDatabase() {
 
         private fun populateDatabase() {
 
-            getInstance().userDao().insert(User(1,
-                "Juanlu","666777888"
-            ))
-            getInstance().userDao().insert(User(2,
-                "Mateo","666999555"
-            ))
-            getInstance().userDao().insert(User(3,
-                "Jguegen","666999555"
-            ))
+            getInstance().userDao().insert(
+                User(1, "Juanlu", "666777888"))
+            getInstance().userDao().insert(
+                User(2, "Mateo", "666999555"))
+            getInstance().userDao().insert(
+                User(3, "Jguegen", "666999555"))
             getInstance().profileDao().insert(
-                Profile(1,UserRepository.getUser(1), "04/03/2024",180.0,80.0)
+                Profile(1, UserRepository.getUser(1), "04/03/2024", 180.0, 80.0)
             )
             getInstance().profileDao().insert(
-                Profile(2,UserRepository.getUser(2), "04/03/2024",165.0,66.0)
+                Profile(2, UserRepository.getUser(2), "04/03/2024", 165.0, 66.0)
             )
         }
     }

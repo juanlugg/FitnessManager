@@ -34,6 +34,7 @@ class MainFragment : Fragment() {
         initTheme()
         initPreferences()
     }
+
     private fun initTheme() {
         var value = Locator.PreferencesRepository.getTheme()
         if (value == "true") {
@@ -47,6 +48,7 @@ class MainFragment : Fragment() {
         var value = Locator.PreferencesRepository.getPreference()
 
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
